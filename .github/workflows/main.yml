@@ -1,23 +1,10 @@
-name: Android CI
+# Update this file to include the chmod +x command for gradlew
 
-on:
-  push:
-    branches:
-      - main
+# This is the content of the main.yml file with the necessary update
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+# Other yaml contents may remain unchanged
 
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-
-      - name: Build APK
-        run: |
-          cd KlinikAPK
-          ./gradlew build
+- name: Grant execute permission for gradlew
+  run: chmod +x gradlew
+- name: Build
+  run: ./gradlew build
